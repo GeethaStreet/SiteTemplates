@@ -1,0 +1,15 @@
+{
+  "name": "demo-sites-node",
+  "version": "1.0.0",
+  "description": "Fetch, scrape, and insert ad into any website.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anya Priestley",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  }
+}

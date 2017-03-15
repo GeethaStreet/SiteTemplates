@@ -1,0 +1,97 @@
+doctype
+html
+    body
+        //- div(class='kargo-ad-hover' style="background-image: url('http://placeholdit.imgix.net/~text?txtsize=25&bg=ee4e11&txtclr=ffffff&txt=320x50&w=320&h=50'); width: 320px; height: 50px; position:fixed; left: 50%; transform:translate(-50%, 0); z-index: 1000000000; bottom: 0px;")
+        script(type='text/javascript', src='http://adtag.krg.localhost:8080/js/AdTag.js')
+
+        script(type='text/javascript').
+            window.__krg_cerberus = false;
+            window.__krg_cerberus_host = 'cerberus.dev.kargo.com';
+            window.__krg_plugin_timeout = 1000;
+            Kargo.setConfig({
+                property: {
+                    //pre_load_js: 'cancel()',
+                    //custom_css: 'body { background-color: green; }',
+                    property_id: 2,
+                    publisher_id: 1,
+                    settings: {
+                        "enable_trackers": true
+                    },
+                    plugins: {
+                        "Moat": {},
+                        "Grapeshot": {},
+                        //"Lotame": {},
+                        "Krux": {},
+                        "Kargo": {},
+                    }
+                },
+                ad_slots: {
+                    "atf": {
+                        platform: 'MobileWeb',
+                        call_automatically: false,
+                        sources: [{
+                            type: "Url",
+                            url: "http://adtag.krg.localhost:8080/ad/hover/celtra",
+                            tracking: {
+                                start: 'start',
+                                request: 'request',
+                                success: 'success',
+                                fail: 'fail',
+                                complete: 'complete'
+                            }
+                        }],
+                        formats: {
+                            "Banner": {
+                            },
+                            "TopBanner": {
+                                is_approved: true
+                            },
+                            "Hover": {
+                                hug_side: "bottom",
+                                height_offset: 0,
+                                wrapper_fill: true,
+                                show_kargo_logo_tag: true,
+                                prevent_close: false,
+                                is_approved: true
+                            },
+                            "Anchor": {
+                                height_offset: 0
+                            },
+                            "SideKick": {
+                                is_approved: true,
+                                horizontal_align: "right",
+                                hug_side: 'bottom',
+                                branding: 'kargo',
+                                height_offset: 0
+                            },
+                            "BreakOut": {
+                                height_offset: 0
+                            },
+                            "SiteSkin": {
+                                is_approved: true,
+                                container_slide_up: 50,
+                                ignore_logo: true
+                            }
+                        }
+                    },
+                }
+            });
+
+        // Kargo Ad Serving Tag 4.0 - Start - ATF
+        img(src='data:image/png,kargo', style='display: none', onerror="\
+            (function(img) {\
+                Kargo.getAd('atf', {\
+                    sourceElement: img,\
+                    tracking: {\
+                        start: 'start',\
+                        complete: 'complete'\
+                    }\
+                });\
+            })(this);\
+        ")
+        // Kargo Ad Serving Tag 4.0 - End - ATF
+
+
+        div(class="maybe")
+            !{html}
+
